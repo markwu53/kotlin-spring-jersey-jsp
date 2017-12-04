@@ -65,10 +65,12 @@ class MyController {
 
     @RequestMapping(value="/user/{user}", method=arrayOf(RequestMethod.GET))
     @ResponseBody
-    fun userInfo(@PathVariable("user") user: String, @RequestParam(value="date", required=false) date: String) = "Hello ${user} ${date}"
+    fun userInfo(@PathVariable("user") user: String,
+            @RequestParam(value="date", required=false) date: String) = "Hello ${user} ${date}"
 
     @RequestMapping("/welcome")
-    fun welcome(model: Model, @RequestParam(value="name", required=false, defaultValue="world") name: String): String {
+    fun welcome(model: Model,
+                @RequestParam(value="name", required=false, defaultValue="world") name: String): String {
         model.addAttribute("name", name)
         return "hello"
     }
